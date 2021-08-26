@@ -1,0 +1,19 @@
+{% extends "base.html" %} {% block title %}Changed{% endblock %} {% block content %}
+<h1 align="center">Pitch-black</h1>
+<ul class="list-group list-group-flush" id="pitches">
+    {% for pitch in user.pitches %}
+    <li class="list-group-item">{{ pitch.data }}
+        <button type="button" class="close" onClick="deletePitch({{ pitch.id }})" <span aria-hidden="true">&times; </span>
+      
+        </button>
+    </li>
+    {% endfor %}
+</ul>
+<form method="POST">
+    <textarea name="pitch" id="pitch" class="form-control"></textarea>
+    <br />
+    <div align="center">
+        <button type="submit" class="btn-btn-primary"> Add pitch</button>
+    </div>
+</form>
+{% endblock %}
